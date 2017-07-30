@@ -16,8 +16,6 @@ const routes: Routes = [
   { path: '', redirectTo: 'players', pathMatch: 'full' },
   { path: 'players', component: PlayerListComponent },
   { path: 'about', component: AboutComponent },
-
-  // { path: 'player/:id', component: PlayerDetailsComponent }
 ];
 
 @NgModule({
