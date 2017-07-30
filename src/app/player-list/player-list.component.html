@@ -9,15 +9,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>Sergey</td>
-        <td>1512</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Sergey</td>
-        <td>1000</td>
+      <tr *ngFor="let player of players">
+        <td>{{player.rank}}</td>
+        <td>{{player.name}}</td>
+        <td>{{player.rating}}</td>
       </tr>
     </tbody>
   </table>

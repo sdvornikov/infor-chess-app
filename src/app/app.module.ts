@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PlayerListComponent } from './player-list/player-list.component';
 
+import { inforChessInjectables } from './app.injecrables';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,7 @@ import { PlayerListComponent } from './player-list/player-list.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [inforChessInjectables],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
