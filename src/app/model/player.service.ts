@@ -8,14 +8,12 @@ import 'rxjs/add/operator/map'
 
 import { Player } from './player.model'
 
-export const API_URL: string = "http://localhost:8000";
-
 /**
  * 
  */
 @Injectable()
 export class PlayerService {
-    constructor(private http: Http, @Inject(API_URL) private apiUrl: string) {
+    constructor(private http: Http, @Inject('API_URL') private apiUrl: string) {
     }
 
     players() : Observable<Player[]> {

@@ -1,6 +1,11 @@
-import { PlayerService, API_URL } from './model/player.service';
+import { PlayerService } from './model/player.service';
+import { AdminService } from './model/admin.service';
+import { API_URL } from './app.config'
+
+
 
 export const inforChessInjectables: Array<any> = [
     {provide: PlayerService, useClass: PlayerService}, 
-    {provide: API_URL, useValue: API_URL}
+    {provide: AdminService, useClass: AdminService}, 
+    {provide: 'API_URL', useValue: API_URL}
 ];

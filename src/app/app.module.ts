@@ -11,11 +11,13 @@ import { PlayerListComponent } from './player-list/player-list.component';
 
 import { inforChessInjectables } from './app.injecrables';
 import { AboutComponent } from './about/about.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'players', pathMatch: 'full' },
   { path: 'players', component: PlayerListComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'admin', component: AdminComponent },
 ];
 
 @NgModule({
@@ -23,7 +25,8 @@ const routes: Routes = [
     AppComponent,
     NavBarComponent,
     PlayerListComponent,
-    AboutComponent
+    AboutComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
