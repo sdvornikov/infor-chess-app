@@ -1,4 +1,11 @@
 <div class="form-group">
-  <input type="password" class="form-control" placeholder="Enter Passcode..." [(ngModel)]="passcode">
+  <input type="password" 
+        class="form-control" 
+        placeholder="Enter Passcode..." 
+        [(ngModel)]="passcode" 
+        [disabled]="this.adminService.busy">
 </div>
-<button type="button" class="btn btn-default" (click)="unlockAdmin()">Unlock Admin Mode</button>
+<button type="button" 
+        class="btn btn-default" 
+        (click)="unlockAdmin()"
+        [disabled]="this.adminService.busy">Unlock Admin Mode</button>
