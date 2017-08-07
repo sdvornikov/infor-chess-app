@@ -13,27 +13,28 @@ import 'rxjs/add/operator/map'
 export class AdminService {
     adminMode: boolean = false;
     adminToken: string = '';
-    busy: boolean = false;
 
     constructor(private http: Http, @Inject('API_URL') private apiUrl: string) {
     }
 
-    enterAdminMode(passcode: string) : void{
+    enterAdminMode(passcode: string) : Observable<Response>{
         var headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
-        this.busy = true;
-        this.http.post(
+        return this.http.post(
             `${this.apiUrl}/admin`,
             `passcode=${passcode}`,
             {headers})
-            .subscribe((res: Response) => {
+        .map((response: Response) => {
+            if(response.ok) {
                 this.adminMode = true;
                 this.adminToken = passcode;
-                this.busy = false;
-            }, (err) => {
-                console.log("failed to unlock admin mode");
-                // failed to unlock admin mode
-                this.busy = false;
-            });
+            }
+            return response;
+        });
+    }
+
+    exitAdminMode() {
+        this.adminMode = false;
+        this.adminToken = "";
     }
 }

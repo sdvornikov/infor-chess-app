@@ -1,11 +1,20 @@
-<div class="form-group">
-  <input type="password" 
-        class="form-control" 
-        placeholder="Enter Passcode..." 
-        [(ngModel)]="passcode" 
-        [disabled]="this.adminService.busy">
+<div *ngIf="!this.adminService.adminMode">
+  <div class="form-group" [class.has-error]="errorMsg">
+    <input type="password" 
+          class="form-control" 
+          placeholder="Enter Passcode..." 
+          [(ngModel)]="passcode" 
+          [disabled]="loading"
+          (keyup)="onPasscodeChange($event)">
+    <span *ngIf="errorMsg" class="help-block">{{errorMsg}}</span>
+  </div>
+  <button type="button" 
+          class="btn btn-default" 
+          (click)="unlockAdmin()"
+          [disabled]="loading">Unlock Admin Mode</button>
 </div>
-<button type="button" 
-        class="btn btn-default" 
-        (click)="unlockAdmin()"
-        [disabled]="this.adminService.busy">Unlock Admin Mode</button>
+<div *ngIf="this.adminService.adminMode">
+  <button type="button" 
+          class="btn btn-default" 
+          (click)="exitAdmin()">Exit Admin Mode</button>
+</div>
