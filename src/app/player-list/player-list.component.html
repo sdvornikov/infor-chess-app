@@ -1,6 +1,7 @@
 <h2>Players</h2>
+<app-add-player *ngIf="this.adminService.adminMode" (playerAdded)="playerAdded($event)"></app-add-player>
 <div class="table-responsive">
-  <table class="table table-bordered table-striped">
+  <table class="table table-bordered table-hover">
     <thead>
       <tr>
         <th class="col-xs-1">#</th>

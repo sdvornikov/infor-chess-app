@@ -12,6 +12,7 @@ import { PlayerListComponent } from './player-list/player-list.component';
 import { inforChessInjectables } from './app.injecrables';
 import { AboutComponent } from './about/about.component';
 import { AdminComponent } from './admin/admin.component';
+import { AddPlayerComponent } from './add-player/add-player.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'players', pathMatch: 'full' },
@@ -26,7 +27,8 @@ const routes: Routes = [
     NavBarComponent,
     PlayerListComponent,
     AboutComponent,
-    AdminComponent
+    AdminComponent,
+    AddPlayerComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+  <div class="panel-heading">New Player</div>
+  <div class="panel-body">
+    <div *ngIf="message" class="alert" role="alert" 
+      [class.alert-danger]="isError" 
+      [class.alert-success]="!isError">
+        {{message}}
+    </div>
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Enter name" #playerName>
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" (click)="addPlayer(playerName.value)">Add</button>
+      </span>
+    </div>
+  </div>
+</div>
